@@ -1,0 +1,243 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+body {
+    /* Floating Pink Sky Gradient */
+    background: linear-gradient(180deg, #fd79a8 0%, #fab1a0 60%, #81ecec 100%);
+    font-family: 'Fredoka One', cursive; /* Cute rounded font */
+    height: 100vh;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+}
+
+/* --- Moving Clouds --- */
+.cloud {
+    position: absolute;
+    background: rgba(255, 255, 255, 0.8);
+    border-radius: 50px;
+    z-index: 0;
+    animation: floatClouds 20s linear infinite;
+}
+.cloud::after, .cloud::before {
+    content: '';
+    position: absolute;
+    background: inherit;
+    border-radius: 50%;
+}
+.cloud-1 { width: 120px; height: 40px; top: 10%; left: -10%; animation-duration: 25s; }
+.cloud-1::after { width: 50px; height: 50px; top: -25px; left: 15px; }
+.cloud-1::before { width: 40px; height: 40px; top: -15px; left: 50px; }
+
+.cloud-2 { width: 180px; height: 60px; top: 30%; left: -20%; animation-duration: 35s; animation-delay: 2s; }
+.cloud-2::after { width: 70px; height: 70px; top: -35px; left: 25px; }
+.cloud-2::before { width: 60px; height: 60px; top: -25px; left: 80px; }
+
+.cloud-3 { width: 100px; height: 35px; top: 60%; left: -10%; animation-duration: 28s; animation-delay: 5s; }
+
+@keyframes floatClouds {
+    0% { left: -20%; opacity: 0.8; }
+    100% { left: 110%; opacity: 0.8; }
+}
+
+/* --- Layout --- */
+.container {
+    text-align: center;
+    z-index: 10;
+    position: relative;
+}
+.stage { transition: all 0.6s cubic-bezier(0.68, -0.55, 0.27, 1.55); }
+.hidden { display: none !important; opacity: 0; }
+
+/* --- Side Buttons --- */
+.controls-container {
+    position: absolute;
+    right: 20px;
+    top: 50%;
+    transform: translateY(-50%);
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    z-index: 20;
+}
+.side-btn {
+    border: none;
+    padding: 15px 20px;
+    border-radius: 50px;
+    font-family: 'Fredoka One', cursive;
+    font-size: 1rem;
+    cursor: pointer;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+    transition: transform 0.2s;
+    color: white;
+    text-align: left;
+}
+.side-btn:hover { transform: scale(1.1); }
+.side-btn:active { transform: scale(0.95); }
+
+/* Button 1: Music (Purple) */
+.music-btn {
+    background: #a29bfe; 
+    border: 3px solid #6c5ce7;
+}
+.btn-number {
+    background: white;
+    color: #6c5ce7;
+    border-radius: 50%;
+    padding: 2px 8px;
+    margin-right: 8px;
+    font-size: 0.9rem;
+}
+/* Button 2: Balloons (Pink) */
+.balloon-btn {
+    background: #fd79a8;
+    border: 3px solid #e84393;
+}
+
+/* --- Gift Box (Pinkie Pie Style) --- */
+.gift-box {
+    width: 140px;
+    height: 140px;
+    position: relative;
+    margin: 0 auto 30px;
+    cursor: pointer;
+    transition: transform 0.3s;
+}
+.gift-box:hover { transform: scale(1.05) rotate(5deg); }
+.gift-lid {
+    width: 150px;
+    height: 35px;
+    background: #fd79a8; /* Light Pink */
+    position: absolute;
+    top: 0; left: -5px;
+    border-radius: 10px;
+    z-index: 2;
+    box-shadow: 0 5px 0 rgba(0,0,0,0.1);
+}
+.gift-body {
+    width: 140px;
+    height: 105px;
+    background: #e84393; /* Darker Pink */
+    position: absolute;
+    bottom: 0;
+    border-radius: 0 0 10px 10px;
+}
+.gift-body::before, .gift-lid::before {
+    content: '';
+    position: absolute;
+    background: #55efc4; /* Mint/Cyan Ribbon */
+    width: 25px;
+    height: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+}
+.prompt-text {
+    font-size: 1.5rem;
+    color: #fff;
+    text-shadow: 2px 2px 0px rgba(0,0,0,0.1);
+    animation: bounce 1.5s infinite;
+}
+
+/* --- Card Reveal --- */
+.fade-in-text {
+    font-size: 3rem;
+    color: #6c5ce7; /* Pony Purple */
+    margin-bottom: 10px;
+    text-shadow: 3px 3px 0px #fff;
+    animation: popUp 0.8s ease-out;
+}
+.message-text {
+    font-size: 1.4rem;
+    color: #2d3436;
+    margin-bottom: 30px;
+    background: rgba(255,255,255,0.6);
+    padding: 10px;
+    border-radius: 15px;
+    display: inline-block;
+}
+
+/* --- Cake --- */
+.cake { width: 160px; position: relative; margin: 0 auto; }
+.cake-layer {
+    width: 100%; height: 40px;
+    background: #ffeaa7;
+    border-radius: 10px;
+    margin-bottom: 5px;
+    position: relative;
+}
+.layer-top { background: #ff7675; width: 80%; margin: 0 auto; }
+.layer-bottom { background: #fab1a0; }
+.candle {
+    width: 10px; height: 40px; background: #74b9ff;
+    position: absolute; top: -40px; left: 50%; transform: translateX(-50%);
+}
+.flame {
+    width: 15px; height: 20px; background: #fdcb6e;
+    border-radius: 50% 50% 20% 20%;
+    position: absolute; top: -20px; left: -2.5px;
+    animation: flicker 0.5s infinite alternate;
+}
+
+/* --- Footer Greeting --- */
+.footer-greeting {
+    position: fixed;
+    bottom: 20px;
+    left: 20px;
+    font-size: 1.2rem;
+    color: #6c5ce7;
+    background: rgba(255,255,255,0.8);
+    padding: 10px 20px;
+    border-radius: 20px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    z-index: 100;
+}
+.wink-emoji { display: inline-block; animation: wink 2s infinite; }
+
+/* --- Overlay layers (must be taken out of flex flow!) --- */
+#confettiCanvas {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 15;
+}
+#balloon-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    pointer-events: none;
+    z-index: 5;
+}
+
+/* --- Balloon Assets --- */
+.balloon {
+    position: absolute;
+    width: 50px; height: 65px;
+    background: red;
+    border-radius: 50%;
+    bottom: -100px;
+    animation: flyUp 6s linear forwards;
+    z-index: 5;
+}
+.balloon::before {
+    content: ''; position: absolute;
+    bottom: -10px; left: 24px;
+    width: 2px; height: 40px;
+    background: rgba(255,255,255,0.7);
+}
+
+/* --- Animations --- */
+@keyframes bounce { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-10px); } }
+@keyframes flicker { from { transform: scale(1); } to { transform: scale(1.2); } }
+@keyframes wink { 0%, 90% { transform: scaleY(1); } 95% { transform: scaleY(0.1); } 100% { transform: scaleY(1); } }
+@keyframes popUp { 0% { transform: scale(0); } 80% { transform: scale(1.1); } 100% { transform: scale(1); } }
+@keyframes flyUp { 0% { bottom: -100px; } 100% { bottom: 120vh; } }

@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Happy Birthday Ellyrha! 🦄</title>
+    <link rel="stylesheet" href="style.css">
+    <!-- Importing a cute, rounded font -->
+    <link href="https://fonts.googleapis.com/css2?family=Fredoka+One&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Background Clouds -->
+    <div class="cloud cloud-1"></div>
+    <div class="cloud cloud-2"></div>
+    <div class="cloud cloud-3"></div>
+
+    <!-- Side Controls -->
+    <div class="controls-container">
+        <!-- Button 1: Music -->
+        <button id="musicBtn" class="side-btn music-btn">
+            <span class="btn-number">1</span> 🎵 Play Music
+        </button>
+        
+        <!-- Button 2: Balloons -->
+        <button id="balloonBtn" class="side-btn balloon-btn">
+            🎈 Pop Balloons!
+        </button>
+    </div>
+
+    <div class="container">
+        <!-- Gift Stage -->
+        <div id="gift-stage" class="stage">
+            <div class="gift-box" id="giftBox">
+                <div class="gift-lid"></div>
+                <div class="gift-body"></div>
+            </div>
+            <p class="prompt-text">Tap the box, Ellyrha!</p>
+        </div>
+
+        <!-- Hidden Card Stage -->
+        <div id="card-stage" class="stage hidden">
+            <h1 class="fade-in-text">✨ Happy Birthday ✨<br>Ellyrha!</h1>
+            <p class="message-text">May your day be as magical as a pony in the sky! 🌈🧁</p>
+            
+            <div class="cake">
+                <div class="candle"><div class="flame"></div></div>
+                <div class="cake-layer layer-top"></div>
+                <div class="cake-layer layer-bottom"></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer Greeting -->
+    <div class="footer-greeting">
+        From your sister <span class="wink-emoji">😉</span>
+    </div>
+    
+    <!-- Confetti & Balloons Container -->
+    <canvas id="confettiCanvas"></canvas>
+    <div id="balloon-container"></div>
+
+    <!-- Hidden Audio Player -->
+    <audio id="birthdayAudio" loop>
+        <!-- You must put a file named 'happy_birthday.mp3' in your folder -->
+        <source src="happy_birthday.mp3" type="audio/mpeg">
+    </audio>
+
+    <script src="script.js"></script>
+</body>
+</html>
