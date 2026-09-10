@@ -160,184 +160,26 @@ body {
     display: inline-block;
 }
 
-/* --- Cake: soft pastel two-tier birthday cake --- */
-.cake {
-    width: 190px;
-    height: 155px;
-    position: relative;
-    margin: 42px auto 30px;
-    filter: drop-shadow(0 8px 8px rgba(108, 92, 231, 0.10));
-}
-
-/* Main cake tiers */
+/* --- Cake --- */
+.cake { width: 160px; position: relative; margin: 40px auto; }
 .cake-layer {
-    position: absolute;
-    left: 50%;
-    transform: translateX(-50%);
-    overflow: visible;
-    border-radius: 22px;
-    border: none;
-    box-shadow:
-        inset 0 -7px 0 rgba(214, 76, 145, 0.10),
-        0 4px 0 rgba(255, 255, 255, 0.35);
+    width: 100%; height: 40px;
+    background: #ffeaa7;
+    border-radius: 10px;
+    margin-bottom: 5px;
+    position: relative;
 }
-
-/* Bottom tier */
-.layer-bottom {
-    width: 180px;
-    height: 70px;
-    bottom: 0;
-    background: #f78fc4;
-    border-radius: 22px 22px 20px 20px;
-}
-
-/* Top tier */
-.layer-top {
-    width: 145px;
-    height: 55px;
-    bottom: 62px;
-    background: #ffb7d8;
-    border-radius: 20px 20px 18px 18px;
-}
-
-/* White frosting cap with cute scalloped edges */
-.layer-bottom::before,
-.layer-top::before {
-    content: '';
-    position: absolute;
-    left: 0;
-    top: -12px;
-    width: 100%;
-    height: 27px;
-    background: #fffdfd;
-    border-radius: 50%;
-    box-shadow:
-        24px 2px 0 #fffdfd,
-        48px -2px 0 #fffdfd,
-        72px 2px 0 #fffdfd,
-        96px -1px 0 #fffdfd,
-        120px 2px 0 #fffdfd;
-}
-
-/* Hide excess frosting circles on the narrower upper tier */
-.layer-top::before {
-    box-shadow:
-        20px 1px 0 #fffdfd,
-        45px -2px 0 #fffdfd,
-        70px 1px 0 #fffdfd,
-        95px -1px 0 #fffdfd;
-}
-
-/* Tiny pastel candy decorations */
-.layer-bottom::after,
-.layer-top::after {
-    content: '';
-    position: absolute;
-    width: 11px;
-    height: 11px;
-    border-radius: 50%;
-    background: #ffd84d;
-    top: 31px;
-    left: 25px;
-    box-shadow:
-        73px 0 0 #a99af7,
-        111px 0 0 #79d9bd;
-}
-
-.layer-top::after {
-    width: 9px;
-    height: 9px;
-    top: 25px;
-    left: 28px;
-    background: #ff6fae;
-    box-shadow:
-        55px 0 0 #9d8cf2;
-}
-
-/* Candle */
+.layer-top { background: #ff7675; width: 80%; margin: 0 auto; }
+.layer-bottom { background: #fab1a0; }
 .candle {
-    width: 13px;
-    height: 45px;
-    position: absolute;
-    z-index: 8;
-    top: -47px;
-    left: 50%;
-    transform: translateX(-50%);
-    background: #b69af5;
-    border-radius: 6px 6px 3px 3px;
-    box-shadow:
-        inset 3px 0 0 rgba(255,255,255,0.30),
-        0 3px 0 rgba(108, 92, 231, 0.10);
+    width: 10px; height: 40px; background: #74b9ff;
+    position: absolute; top: -40px; left: 50%; transform: translateX(-50%);
 }
-
-/* Candle stripes */
-.candle::before {
-    content: '';
-    position: absolute;
-    left: 0;
-    top: 9px;
-    width: 100%;
-    height: 6px;
-    background: rgba(255,255,255,0.28);
-    box-shadow: 0 13px 0 rgba(255,255,255,0.28);
-}
-
-/* Make the single existing candle feel like a 3-candle arrangement */
-.candle::after {
-    content: '';
-    position: absolute;
-    width: 11px;
-    height: 39px;
-    left: -38px;
-    top: 7px;
-    background: #f3c95b;
-    border-radius: 6px 6px 3px 3px;
-    box-shadow:
-        76px 4px 0 #75d8bd,
-        inset 3px 0 0 rgba(255,255,255,0.30);
-}
-
-/* Flame */
 .flame {
-    width: 16px;
-    height: 23px;
-    position: absolute;
-    z-index: 10;
-    top: -23px;
-    left: 50%;
-    transform: translateX(-50%);
-    background: #ffd35a;
-    border-radius: 55% 55% 55% 55%;
-    clip-path: polygon(50% 0%, 78% 38%, 100% 62%, 82% 91%, 50% 100%, 18% 91%, 0% 62%, 22% 38%);
-    filter: drop-shadow(0 2px 3px rgba(255, 174, 0, 0.25));
-    animation: flicker 0.55s ease-in-out infinite alternate;
-}
-
-/* Extra little inner glow */
-.flame::after {
-    content: '';
-    position: absolute;
-    width: 6px;
-    height: 10px;
-    left: 5px;
-    bottom: 3px;
-    background: #fff2a8;
-    border-radius: 50%;
-}
-
-/* Cake animation */
-.cake:hover {
-    transform: translateY(-3px) scale(1.02);
-    transition: transform 0.25s ease;
-}
-
-@keyframes flicker {
-    0% {
-        transform: translateX(-50%) scale(0.95) rotate(-2deg);
-    }
-    100% {
-        transform: translateX(-50%) scale(1.08) rotate(2deg);
-    }
+    width: 15px; height: 20px; background: #fdcb6e;
+    border-radius: 50% 50% 20% 20%;
+    position: absolute; top: -20px; left: -2.5px;
+    animation: flicker 0.5s infinite alternate;
 }
 
 /* --- Footer Greeting --- */
