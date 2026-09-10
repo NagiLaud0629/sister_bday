@@ -161,7 +161,7 @@ body {
 }
 
 /* --- Cake --- */
-.cake { width: 160px; position: relative; margin: 0 auto; }
+.cake { width: 160px; position: relative; margin: 40px auto; }
 .cake-layer {
     width: 100%; height: 40px;
     background: #ffeaa7;
